@@ -1,0 +1,48 @@
+name:                notes-api
+version:             0.0.1.0
+github:              "cbdavide/notes-api"
+license:             MIT
+author:              "David Castelblanco"
+maintainer:          "cbdavides@gmail.com"
+copyright:           "2020 David Castelblanco"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Save and query your notes
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at https://github.com/cbdavide/notes-api#readme
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  notes-api-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - notes-api
+
+tests:
+  notes-api-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - notes-api
